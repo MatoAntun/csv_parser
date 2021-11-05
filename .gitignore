@@ -1,0 +1,5 @@
+dnami_venv
+.vscode
+__pycache__
+test_saving
+coding_challenge_data.csv
