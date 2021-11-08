@@ -18,20 +18,19 @@ class CreatedHandler(FileSystemEventHandler):
         """Process created .csv"""
         try:
             file_name = os.path.normpath(filename)
-            start = datetime.now()
             if self.check_created_size(file_name):
                 CsvProcessing(file_name).parse_csv()
         except pandas.errors.ParserError as pdex:
             logger.error(str(pdex))
         except Exception as ex: #pylint: disable=broad-except
             logger.error("Problems with processing .csv %s", str(ex))
-        logger.info("Time needed processing: %s", str(datetime.now() - start))
+        logger.info("File finished processing")
 
     def on_created(self, event:object) -> str: #pylint: disable=inconsistent-return-statements
         """Watchdog event on_created returns created file"""
         try:
             if event.is_directory:
-                logger.info("Created directory")
+                logger.info("Created folder")
                 return
             _, ext = os.path.splitext(event.src_path)
             logger.info("Created file %s", {event.src_path})

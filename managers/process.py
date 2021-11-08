@@ -19,8 +19,8 @@ class CsvProcessing():
     def parse_csv(self):
         """Reading csv, calculating currency and returning a data frame"""
         #pylint: disable=unsupported-assignment-operation, unsubscriptable-object
-        with dask.config.set(pool=ProcessPoolExecutor(4)):
-            time.sleep(0.2)
+        with dask.config.set(pool=ProcessPoolExecutor(8)):
+            time.sleep(0.1)
             data_frame = pd.read_csv(self.file_name,
             encoding = 'utf-16',
             names = self.header_names(),

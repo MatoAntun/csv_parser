@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  bidnamic-coding:
+    build: .
+    volumes:
+      - .:/bidnamic_parser
