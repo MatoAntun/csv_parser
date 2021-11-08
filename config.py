@@ -1,13 +1,15 @@
-"""Config file for manipulating .env"""
+"""Coding challenge Config module"""
 import os
 from pydantic import BaseSettings
+from dotenv import load_dotenv
 
+load_dotenv()
 class Settings(BaseSettings):
-    """Setting class for loading .env"""
-    PROCESSED_FOLDER: str
+    """Base Config"""
+    ROOT_FOLDER: str
     SEARCH_FOLDER: str
 
-    PROCESSED_FOLDER = os.getenv('PROCESSED_FOLDER')
+    ROOT_FOLDER = os.getenv('ROOT_FOLDER')
     SEARCH_FOLDER = os.getenv('SEARCH_FOLDER')
 
 settings = Settings()
