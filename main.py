@@ -1,4 +1,4 @@
-"""Bidnamic coding challenge script main"""
+"""Coding challenge script main"""
 import sys
 import os
 import time
